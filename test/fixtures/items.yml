@@ -1,0 +1,13 @@
+one:
+  title: Nákup OBI
+  description: Sprcha a záchod
+  price: 9876
+  category: one
+  buy_at: 2017-11-22
+
+two:
+  title: LIDL
+  description: Nákup potravín
+  price: 3492
+  category: two
+  buy_at: 2017-11-22
