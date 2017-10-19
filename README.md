@@ -1,24 +1,38 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Development
 
-Things you may want to cover:
+##### Setting Up Development Environment
 
-* Ruby version
+Clone or download application.
 
-* System dependencies
+##### Running Seeds
 
-* Configuration
+```
+rails db:migrate
+rails db:seed
+```
 
-* Database creation
+##### Running The App
 
-* Database initialization
+```
+rails server
+```
 
-* How to run the test suite
+### Running Tests
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+rails test
+```
 
-* Deployment instructions
+## Deployment
 
-* ...
+```
+git push heroku master
+```
+
+### Ruby version
+  - 2.4.1
+
+### Rails version
+  - 5.1.4
