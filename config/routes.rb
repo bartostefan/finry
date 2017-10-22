@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :items
   resources :categories
   resources :fio_items, except: [:edit, :update, :show]
+  resources :tokens
 end

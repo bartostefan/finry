@@ -1,0 +1,27 @@
+<%= form_with(model: token, local: true) do |form| %>
+  <% if token.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% token.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :token_title, class: 'form-control' %>
+  </div>
+
+  <% if token.new_record? %>
+    <div class="form-group">
+      <%= form.label :token %>
+      <%= form.text_field :token, id: :token_token, class: 'form-control' %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.submit 'Send', class: 'btn btn-success pull-right' %>
+  </div>
+<% end %>

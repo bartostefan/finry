@@ -1,0 +1,15 @@
+<h1 class="page-header"><%= @token.title %> detail</h1>
+
+<table class="table table-striped">
+  <tr>
+    <td>Title</td>
+    <td><%= @token.title %></td>
+  </tr>
+  <tr>
+    <td>Token</td>
+    <td><%= truncate_token(@token.token) %></td>
+  </tr>
+</table>
+
+<%= link_to 'Edit', edit_token_path(@token), class: 'btn btn-link' %>
+<%= link_to 'Back', tokens_path, class: 'btn btn-primary pull-right' %>

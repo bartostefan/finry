@@ -1,0 +1,23 @@
+<h1 class="page-header">Tokens</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Token</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tokens.each do |token| %>
+      <tr>
+        <td><%= token.title %></td>
+        <td><%= truncate_token(token.token) %></td>
+        <td><%= link_to 'Show', token %></td>
+        <td><%= link_to 'Edit', edit_token_path(token) %></td>
+        <td><%= link_to 'Destroy', token, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
