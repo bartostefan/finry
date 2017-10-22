@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.page(page_number)
+    @items = Item.page(page_number).per(10)
     @index_chart = Items::GraphDataQuery.call
   end
 
