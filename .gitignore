@@ -22,5 +22,3 @@
 
 .idea/
 .byebug_history
-
-config/app_environment_variables.rb
