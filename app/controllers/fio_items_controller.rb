@@ -32,7 +32,7 @@ class FioItemsController < ApplicationController
   end
 
   def fio_import_form_params
-    params.fetch(:fio_import_form, {}).permit(:date_from, :date_to)
+    params.fetch(:fio_import_form, {}).permit(:date_from, :date_to, :token_id)
   end
 
   def set_default_dates

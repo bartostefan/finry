@@ -11,7 +11,7 @@ module Fio
 
     test 'get the results from FIO API' do
       assert_difference 'FioItem.count', 21 do
-        @result = Fio::Transactions.call({ date_from: '2017-09-01', date_to: '2017-09-30' })
+        @result = Fio::Transactions.call({ date_from: '2017-09-01', date_to: '2017-09-30', token_id: tokens(:one).id })
       end
       transaction = @result.last
       fio_item = FioItem.last

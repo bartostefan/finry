@@ -16,7 +16,7 @@ class FioItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create fio_item' do
-    post fio_items_url, params: { fio_import_form: { date_from: '01.11.2017', date_to: '30.11.2017' } }
+    post fio_items_url, params: { fio_import_form: { date_from: '01.11.2017', date_to: '30.11.2017', token_id: tokens(:one).id } }
     assert_redirected_to fio_items_url
   end
 

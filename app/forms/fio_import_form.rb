@@ -1,12 +1,13 @@
 class FioImportForm < BaseForm
-  attr_accessor :date_from, :date_to
+  attr_accessor :date_from, :date_to, :token_id
 
-  validates :date_from, :date_to, presence: true
+  validates :date_from, :date_to, :token_id, presence: true
 
   def initialize(params = {})
     @params = params
     @date_from = params[:date_from]
     @date_to = params[:date_to]
+    @token_id = params[:token_id]
   end
 
   def save
