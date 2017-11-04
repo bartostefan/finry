@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class ItemsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @item = items(:one)
-    @fio_item
   end
 
   test 'should get index' do
@@ -18,7 +19,15 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create item' do
     assert_difference('Item.count') do
-      post items_url, params: { item: { description: 'item description', price: 1200, title: 'item title', category_id: @item.category.id, buy_at: '11/12/2017' } }
+      post items_url, params: {
+        item: {
+          description: 'item description',
+          price: 1200,
+          title: 'item title',
+          category_id: @item.category.id,
+          buy_at: '11/12/2017'
+        }
+      }
     end
 
     item = Item.last
@@ -34,7 +43,16 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
     fio_item_id = fio_items(:one).id
 
     assert_difference('Item.count') do
-      post items_url, params: { fio_item_id: fio_item_id, item: { description: 'item description', price: 1200, title: 'item title', category_id: @item.category.id, buy_at: '11/12/2017' } }
+      post items_url, params: {
+        fio_item_id: fio_item_id,
+        item: {
+          description: 'item description',
+          price: 1200,
+          title: 'item title',
+          category_id: @item.category.id,
+          buy_at: '11/12/2017'
+        }
+      }
     end
 
     item = Item.last

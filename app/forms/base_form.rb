@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BaseForm
   extend ActiveModel::Naming
   include ActiveModel::Conversion

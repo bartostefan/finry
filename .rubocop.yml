@@ -1,0 +1,9 @@
+AllCops:
+  Excludes:
+    - db/**
+    - config/**/*
+    - bin/**
+Metrics/LineLength:
+  Max: 150
+Documentation:
+  Enabled: false

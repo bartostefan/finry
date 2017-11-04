@@ -1,20 +1,20 @@
+# frozen_string_literal: true
+
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: %i[show edit update destroy]
 
   def index
     @items = Item.page(page_number).per(10)
     @index_chart = Items::GraphDataQuery.call
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @item = Fio::IdentifyItem.call(params.dig(:fio_item_id))
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @item = Item.new(item_params)

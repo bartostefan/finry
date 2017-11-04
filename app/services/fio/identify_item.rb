@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Fio
   class IdentifyItem
     include Service
@@ -16,8 +18,9 @@ module Fio
       item = Item.new
       return item unless @fio_item_id.present?
 
-      if splitted = split_comment(fio_item.comment)
-        item.title, item.description = splitted[0], splitted[1]
+      if (splitted = split_comment(fio_item.comment))
+        item.title = splitted[0]
+        item.description = splitted[1]
       end
       item.price = fio_item.amount.abs
       item.buy_at = fio_item.date

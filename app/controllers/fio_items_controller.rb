@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class FioItemsController < ApplicationController
-  before_action :set_fio_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_fio_item, only: %i[show edit update destroy]
   before_action :set_default_dates, only: [:new]
 
   def index
@@ -21,7 +23,7 @@ class FioItemsController < ApplicationController
   end
 
   def destroy
-    @fio_item.update(deleted_at: DateTime.current)
+    @fio_item.update(deleted_at: Time.now)
     redirect_to fio_items_url, notice: 'Fio item was successfully destroyed.'
   end
 

@@ -1,19 +1,19 @@
+# frozen_string_literal: true
+
 class TokensController < ApplicationController
-  before_action :set_token, only: [:show, :edit, :update, :destroy]
+  before_action :set_token, only: %i[show edit update destroy]
 
   def index
     @tokens = Token.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @token = Token.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @token = Token.new(token_params)

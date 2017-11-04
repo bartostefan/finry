@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FioImportForm < BaseForm
   attr_accessor :date_from, :date_to, :token_id
 
@@ -11,12 +13,11 @@ class FioImportForm < BaseForm
   end
 
   def save
-    if valid?
-      begin
-        Fio::Transactions.call(@params)
-      rescue Exception => e
-        errors.add(:base, "Error: #{e}")
-      end
+    return unless valid?
+    begin
+      Fio::Transactions.call(@params)
+    rescue StandardError => e
+      errors.add(:base, "Error: #{e}")
     end
   end
 end

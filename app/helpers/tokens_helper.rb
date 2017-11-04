@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TokensHelper
   def token_options
     [['All tokens', 0]] + Token.all.map { |t| [t.title, t.id] }

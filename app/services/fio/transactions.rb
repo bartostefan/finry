@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Fio
   class Transactions
     include Service
@@ -15,21 +17,23 @@ module Fio
     private
 
     def save!
-      transactions = []
+      tokens.map do |token|
+        process_token(token)
+      end.flatten
+    end
 
-      tokens.each do |token|
-        FioAPI.token = token.token
-        list.by_date_range(change_to_date(@date_from), change_to_date(@date_to))
+    def process_token(token)
+      FioAPI.token = token.token
+      process_transactions
+    end
 
-        list.response.transactions.each do |transaction|
-          next if transaction.amount > 0
-          Fio::CreateFioItemFromTransaction.call(transaction)
-        end
-
-        transactions << list.response.transactions
+    def process_transactions
+      list.by_date_range(change_to_date(@date_from), change_to_date(@date_to))
+      list.response.transactions.each do |transaction|
+        next if transaction.amount.positive?
+        Fio::CreateFioItemFromTransaction.call(transaction)
       end
-
-      transactions.flatten
+      list.response.transactions
     end
 
     def list

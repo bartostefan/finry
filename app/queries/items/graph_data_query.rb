@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Items
   class GraphDataQuery
     def self.call(relation = Item.all, options = { includes: :category, group: ['categories.title', "to_char(buy_at, 'MM-YYYY')"], sum: :price })
